@@ -1,3 +1,11 @@
+/**
+ * The ListGroup component in TypeScript React displays a list of items with a heading and allows
+ * selecting an item with a callback function.
+ * @param {Props}  - The `ListGroup` component takes the following props:
+ * @returns The `ListGroup` component is being returned. It renders a list of items with a heading and
+ * allows the user to select an item by clicking on it. The selected item is highlighted with a
+ * different style. If there are no items in the list, a message "No item Found" is displayed.
+ */
 import { useState } from "react";
 
 interface Props {
