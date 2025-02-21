@@ -1,4 +1,4 @@
-import ListGroup from "./Components/ListGroup";
+import ListGroup from "./Components/ListGroup/ListGroup";
 
 function App() {
   let items = ["New York", "San francisco", "Tokyo", "London", "Paris"];
