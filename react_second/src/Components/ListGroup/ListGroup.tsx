@@ -7,6 +7,7 @@
  * different style. If there are no items in the list, a message "No item Found" is displayed.
  */
 import { useState } from "react";
+import "./ListGroup.css";
 
 interface Props {
   items: string[];
