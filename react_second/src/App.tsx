@@ -1,25 +1,25 @@
 import ListGroup from "./Components/ListGroup";
 import "./App.css";
 
-function App() {
-  let items = ["New York", "San francisco", "Tokyo", "London", "Paris"];
-  //passing funtions via props
-  const handleSelectItem = (item: string) => {
-    console.log(item);
-  };
+// function App() {
+//   let items = ["New York", "San francisco", "Tokyo", "London", "Paris"];
+//   //passing funtions via props
+//   const handleSelectItem = (item: string) => {
+//     console.log(item);
+//   };
 
-  return (
-    <div>
-      <ListGroup
-        items={items}
-        heading="cities"
-        onSelectedItem={handleSelectItem}
-      />
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       <ListGroup
+//         items={items}
+//         heading="cities"
+//         onSelectedItem={handleSelectItem}
+//       />
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;
 
 // //Alert Passing Children
 // import { useState } from "react";
@@ -48,3 +48,13 @@ export default App;
 //   );
 // }
 // export default App;
+import { FaCalendarDay } from "react-icons/fa";
+function App() {
+  return (
+    <div>
+      <FaCalendarDay color="red" size="40" />
+    </div>
+  );
+}
+
+export default App;
