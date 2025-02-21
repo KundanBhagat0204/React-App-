@@ -8,21 +8,21 @@
  */
 import { useState } from "react";
 import "./ListGroup.css";
-import styled from "styled-components";
+// import styled from "styled-components";
 
-const List = styled.ul`
-  list-style: none;
-  padding: 0;
-`;
+// const List = styled.ul`
+//   list-style: none;
+//   padding: 0;
+// `;
 
-const ListItem = styled.li<ListItemProps>`
-  padding: 5px 0;
-  background: ${(props) => (props.active ? "orange" : "none")};
-`;
+// const ListItem = styled.li<ListItemProps>`
+//   padding: 5px 0;
+//   background: ${(props) => (props.active ? "orange" : "none")};
+// `;
 
-interface ListItemProps {
-  active: boolean;
-}
+// interface ListItemProps {
+//   active: boolean;
+// }
 
 interface Props {
   items: string[];
@@ -40,10 +40,12 @@ function ListGroup({ items, heading, onSelectedItem }: Props) {
     <>
       <h1>{heading}</h1>
       {items.length === 0 && <p>No item Found</p>}
-      <List>
+      <ul className="list-group">
         {items.map((item, index) => (
-          <ListItem
-            active={index === selectedIdx}
+          <li
+            className={
+              selectedIdx === index ? "list-item active" : "list-group-item"
+            }
             key={item}
             onClick={() => {
               setSelectedIdx(index);
@@ -51,9 +53,9 @@ function ListGroup({ items, heading, onSelectedItem }: Props) {
             }}
           >
             {item}
-          </ListItem>
+          </li>
         ))}
-      </List>
+      </ul>
     </>
   );
 }
