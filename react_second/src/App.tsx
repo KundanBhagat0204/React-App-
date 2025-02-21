@@ -58,13 +58,25 @@ import "./App.css";
 // }
 
 // export default App;
-import Button from "./Components/Button/Button";
-function App() {
+// import Button from "./Components/Button/Button";
+// function App() {
+//   return (
+//     <div>
+//       <Button onClick={() => {}}>My Button</Button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+import Like from "./Components/Like";
+
+const App = () => {
   return (
     <div>
-      <Button onClick={() => {}}>My Button</Button>
+      <Like onClick={() => console.log("clicked")} />
     </div>
   );
-}
+};
 
 export default App;
