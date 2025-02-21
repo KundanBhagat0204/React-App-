@@ -7,7 +7,7 @@
  * different style. If there are no items in the list, a message "No item Found" is displayed.
  */
 import { useState } from "react";
-import styles from "./ListGroup.module.css";
+import "./ListGroup.css";
 
 interface Props {
   items: string[];
@@ -25,7 +25,7 @@ function ListGroup({ items, heading, onSelectedItem }: Props) {
     <>
       <h1>{heading}</h1>
       {items.length === 0 && <p>No item Found</p>}
-      <ul className={[styles.ListGroup, styles.container].join(" ")}>
+      <ul className="list-group">
         {items.map((item, index) => (
           <li
             className={
