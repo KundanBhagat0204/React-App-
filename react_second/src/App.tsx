@@ -1,4 +1,5 @@
 import ListGroup from "./Components/ListGroup";
+import "./App.css";
 
 function App() {
   let items = ["New York", "San francisco", "Tokyo", "London", "Paris"];
