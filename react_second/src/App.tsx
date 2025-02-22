@@ -116,6 +116,7 @@ import "./App.css";
 // export default App;
 
 import { useState } from "react";
+import produce from "immer";
 
 function App() {
   // const [drink, setDrink] = useState({
@@ -131,7 +132,7 @@ function App() {
   // });
 
   // const [tags, setTags] = useState(["happy", "cheerful"]);
-
+  //simplying Update Logic With Immer
   const [bugs, setBugs] = useState([
     { id: 1, title: "Bug 1", fixed: false },
     { id: 2, title: "Bug 2", fixed: false },
@@ -154,19 +155,26 @@ function App() {
     // //update
     // setTags(tags.map((tag) => (tag === "happy" ? "happiens" : tag)));
 
-    setBugs(bugs.map((bug) => (bug.id === 1 ? { ...bug, fixed: true } : bug)));
+    // setBugs(bugs.map((bug) => (bug.id === 1 ? { ...bug, fixed: true } : bug)));
+
+    setBugs(
+      produce((draft) => {
+        const bug = draft.find((bug) => bug.id === 1);
+        if (bug) {
+          bug.fixed = true;
+        }
+      })
+    );
   };
 
   return (
     <div>
       {bugs.map((bug) => (
-        <div key={bug.id}>
-          <p>
-            {bug.title} - {bug.fixed ? "Fixed ✅" : "Not Fixed ❌"}
-          </p>
-        </div>
+        <p key={bug.id}>
+          {bug.title} {bug.fixed ? "Fixed" : "New"}
+        </p>
       ))}
-      <button onClick={handleClick}>Count</button>
+      ;<button onClick={handleClick}>Count</button>
     </div>
   );
 }
