@@ -69,14 +69,36 @@ import "./App.css";
 
 // export default App;
 
-import Like from "./Components/Like";
+// import Like from "./Components/Like";
 
-const App = () => {
+// const App = () => {
+//   return (
+//     <div>
+//       <Like onClick={() => console.log("clicked")} />
+//     </div>
+//   );
+// };
+
+// export default App;
+
+import Button from "./Components/Button/Button";
+import { useState } from "react";
+
+function App() {
+  const [isVisible, setVisibility] = useState(false);
+  let count = 0;
+
+  const handleClick = () => {
+    setVisibility(true);
+    count++;
+    console.log(isVisible);
+  };
+
   return (
     <div>
-      <Like onClick={() => console.log("clicked")} />
+      <Button onClick={handleClick}>Show</Button>
     </div>
   );
-};
+}
 
 export default App;
