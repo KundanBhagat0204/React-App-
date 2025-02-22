@@ -118,18 +118,32 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [drink, setDrink] = useState({
-    title: "americano",
-    price: 5,
+  // const [drink, setDrink] = useState({
+  //   title: "americano",
+  //   price: 5,
+  // });
+  const [customer, setCustomer] = useState({
+    name: "kundan",
+    address: {
+      city: "sangli",
+      zipCode: 410410,
+    },
   });
 
   const handleClick = () => {
-    setDrink({ ...drink, price: 6 });
+    // setDrink({ ...drink, price: 6 });
+    setCustomer({
+      ...customer,
+      address: {
+        ...customer.address,
+        zipCode: 410412,
+      },
+    });
   };
 
   return (
     <div>
-      {drink.price}
+      {customer.address.zipCode}
       <button onClick={handleClick}>Count</button>
     </div>
   );
