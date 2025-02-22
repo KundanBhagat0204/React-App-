@@ -122,28 +122,37 @@ function App() {
   //   title: "americano",
   //   price: 5,
   // });
-  const [customer, setCustomer] = useState({
-    name: "kundan",
-    address: {
-      city: "sangli",
-      zipCode: 410410,
-    },
-  });
+  // const [customer, setCustomer] = useState({
+  //   name: "kundan",
+  //   address: {
+  //     city: "sangli",
+  //     zipCode: 410410,
+  //   },
+  // });
 
+  const [tags, setTags] = useState(["happy", "cheerful"]);
   const handleClick = () => {
     // setDrink({ ...drink, price: 6 });
-    setCustomer({
-      ...customer,
-      address: {
-        ...customer.address,
-        zipCode: 410412,
-      },
-    });
+    // setCustomer({
+    //   ...customer,
+    //   address: {
+    //     ...customer.address,
+    //     zipCode: 410412,
+    //   },
+    // });
+    //add
+    setTags([...tags, "exciting"]);
+
+    //remove
+    setTags(tags.filter((tag) => tag !== "happy"));
+
+    //update
+    setTags(tags.map((tag) => (tag === "happy" ? "happiens" : tag)));
   };
 
   return (
     <div>
-      {customer.address.zipCode}
+      {tags}
       <button onClick={handleClick}>Count</button>
     </div>
   );
