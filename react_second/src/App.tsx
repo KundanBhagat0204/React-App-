@@ -199,43 +199,68 @@ import "./App.css";
 
 //Exercise 1
 //Game
-import { useState } from "react";
+// import { useState } from "react";
 
+// function App() {
+//   // const [game, setGame] = useState({
+//   //   id: 1,
+//   //   player: {
+//   //     name: "john",
+//   //   },
+//   // });
+//   // const [pizza, setPizza] = useState({
+//   //   name: "Spicy Pepperoni",
+//   //   toppings: ["mushroom"],
+//   // });
+//   const [cart, setCart] = useState({
+//     discount: 0.1,
+//     items: [
+//       { id: 1, title: "Product 1", quantity: 1 },
+//       { id: 2, title: "Product 2", quantity: 1 },
+//     ],
+//   });
+
+//   const handleClick = () => {
+//     // setGame({ ...game, player: { ...game.player, name: "kd" } });
+//     // setPizza({ ...pizza, toppings: [...pizza.toppings, "Cheese"] });
+//     setCart({
+//       ...cart,
+//       items: cart.items.map((item) =>
+//         item.id === 1 ? { ...item, quantity: item.quantity + 1 } : item
+//       ),
+//     });
+//   };
+
+//   return (
+//     <div>
+//       <h2>Product 1 : Quantity {cart.items[0]?.quantity}</h2>
+//       <button onClick={handleClick}>Change</button>
+//     </div>
+//   );
+// }
+
+// export default App;
+import ExpandableText from "./Components/ExpandableText";
 function App() {
-  // const [game, setGame] = useState({
-  //   id: 1,
-  //   player: {
-  //     name: "john",
-  //   },
-  // });
-  // const [pizza, setPizza] = useState({
-  //   name: "Spicy Pepperoni",
-  //   toppings: ["mushroom"],
-  // });
-  const [cart, setCart] = useState({
-    discount: 0.1,
-    items: [
-      { id: 1, title: "Product 1", quantity: 1 },
-      { id: 2, title: "Product 2", quantity: 1 },
-    ],
-  });
-
-  const handleClick = () => {
-    // setGame({ ...game, player: { ...game.player, name: "kd" } });
-    // setPizza({ ...pizza, toppings: [...pizza.toppings, "Cheese"] });
-    setCart({
-      ...cart,
-      items: cart.items.map((item) =>
-        item.id === 1 ? { ...item, quantity: item.quantity + 1 } : item
-      ),
-    });
-  };
-
   return (
-    <div>
-      <h2>Product 1 : Quantity {cart.items[0]?.quantity}</h2>
-      <button onClick={handleClick}>Change</button>
-    </div>
+    <>
+      <div>
+        <ExpandableText maxChars={10}>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro modi
+          excepturi officia quo harum, molestias tempore corporis eos
+          consequatur iste quidem expedita minus cum veniam, ab aliquam iure
+          quam exercitationem aliquid ad provident voluptates error perspiciatis
+          neque. Aliquam illum eaque harum exercitationem? Beatae quo
+          cupiditate, provident illum ducimus consequuntur, itaque nihil,
+          ratione nesciunt repudiandae obcaecati! Lorem ipsum dolor sit amet
+          consectetur adipisicing elit. Non aspernatur aliquam necessitatibus
+          quasi deserunt eius esse officiis voluptatibus adipisci ratione
+          cupiditate reiciendis minus magni quae, atque hic, in rem iure nemo
+          quibusdam? Odio quidem rerum voluptates saepe repellat similique
+          molestiae, dignissimos, quibusdam ad, repudiandae laboriosam.
+        </ExpandableText>
+      </div>
+    </>
   );
 }
 
