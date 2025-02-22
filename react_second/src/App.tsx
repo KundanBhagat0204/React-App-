@@ -115,66 +115,82 @@ import "./App.css";
 
 // export default App;
 
+// import { useState } from "react";
+// import produce from "immer";
+
+// function App() {
+//   // const [drink, setDrink] = useState({
+//   //   title: "americano",
+//   //   price: 5,
+//   // });
+//   // const [customer, setCustomer] = useState({
+//   //   name: "kundan",
+//   //   address: {
+//   //     city: "sangli",
+//   //     zipCode: 410410,
+//   //   },
+//   // });
+
+//   // const [tags, setTags] = useState(["happy", "cheerful"]);
+//   //simplying Update Logic With Immer
+//   const [bugs, setBugs] = useState([
+//     { id: 1, title: "Bug 1", fixed: false },
+//     { id: 2, title: "Bug 2", fixed: false },
+//   ]);
+//   const handleClick = () => {
+//     // setDrink({ ...drink, price: 6 });
+//     // setCustomer({
+//     //   ...customer,
+//     //   address: {
+//     //     ...customer.address,
+//     //     zipCode: 410412,
+//     //   },
+//     // });
+//     //add
+//     // setTags([...tags, "exciting"]);
+
+//     // //remove
+//     // setTags(tags.filter((tag) => tag !== "happy"));
+
+//     // //update
+//     // setTags(tags.map((tag) => (tag === "happy" ? "happiens" : tag)));
+
+//     // setBugs(bugs.map((bug) => (bug.id === 1 ? { ...bug, fixed: true } : bug)));
+
+//     setBugs(
+//       produce((draft) => {
+//         const bug = draft.find((bug) => bug.id === 1);
+//         if (bug) {
+//           bug.fixed = true;
+//         }
+//       })
+//     );
+//   };
+
+//   return (
+//     <div>
+//       {bugs.map((bug) => (
+//         <p key={bug.id}>
+//           {bug.title} {bug.fixed ? "Fixed" : "New"}
+//         </p>
+//       ))}
+//       ;<button onClick={handleClick}>Count</button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
 import { useState } from "react";
-import produce from "immer";
+import NavBar from "./Components/NavBar";
+import Cart from "./Components/Cart";
 
 function App() {
-  // const [drink, setDrink] = useState({
-  //   title: "americano",
-  //   price: 5,
-  // });
-  // const [customer, setCustomer] = useState({
-  //   name: "kundan",
-  //   address: {
-  //     city: "sangli",
-  //     zipCode: 410410,
-  //   },
-  // });
-
-  // const [tags, setTags] = useState(["happy", "cheerful"]);
-  //simplying Update Logic With Immer
-  const [bugs, setBugs] = useState([
-    { id: 1, title: "Bug 1", fixed: false },
-    { id: 2, title: "Bug 2", fixed: false },
-  ]);
-  const handleClick = () => {
-    // setDrink({ ...drink, price: 6 });
-    // setCustomer({
-    //   ...customer,
-    //   address: {
-    //     ...customer.address,
-    //     zipCode: 410412,
-    //   },
-    // });
-    //add
-    // setTags([...tags, "exciting"]);
-
-    // //remove
-    // setTags(tags.filter((tag) => tag !== "happy"));
-
-    // //update
-    // setTags(tags.map((tag) => (tag === "happy" ? "happiens" : tag)));
-
-    // setBugs(bugs.map((bug) => (bug.id === 1 ? { ...bug, fixed: true } : bug)));
-
-    setBugs(
-      produce((draft) => {
-        const bug = draft.find((bug) => bug.id === 1);
-        if (bug) {
-          bug.fixed = true;
-        }
-      })
-    );
-  };
-
+  const [cartItems, setCartItems] = useState(["Product1", "Product2"]);
   return (
     <div>
-      {bugs.map((bug) => (
-        <p key={bug.id}>
-          {bug.title} {bug.fixed ? "Fixed" : "New"}
-        </p>
-      ))}
-      ;<button onClick={handleClick}>Count</button>
+      <NavBar cartItemsCount={cartItems.length} />
+      <Cart cartItems={cartItems} onClear={() => setCartItems([])} />
     </div>
   );
 }
