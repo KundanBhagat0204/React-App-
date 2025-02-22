@@ -181,16 +181,42 @@ import "./App.css";
 
 // export default App;
 
+// import { useState } from "react";
+// import NavBar from "./Components/NavBar";
+// import Cart from "./Components/Cart";
+
+// function App() {
+//   const [cartItems, setCartItems] = useState(["Product1", "Product2"]);
+//   return (
+//     <div>
+//       <NavBar cartItemsCount={cartItems.length} />
+//       <Cart cartItems={cartItems} onClear={() => setCartItems([])} />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+//Exercise 1
+//Game
 import { useState } from "react";
-import NavBar from "./Components/NavBar";
-import Cart from "./Components/Cart";
 
 function App() {
-  const [cartItems, setCartItems] = useState(["Product1", "Product2"]);
+  const [game, setGame] = useState({
+    id: 1,
+    player: {
+      name: "john",
+    },
+  });
+
+  const handleClick = () => {
+    setGame({ ...game, player: { ...game.player, name: "kd" } });
+  };
+
   return (
     <div>
-      <NavBar cartItemsCount={cartItems.length} />
-      <Cart cartItems={cartItems} onClear={() => setCartItems([])} />
+      <h2>Player Name:{game.player.name}</h2>
+      <button onClick={handleClick}>Change</button>
     </div>
   );
 }
