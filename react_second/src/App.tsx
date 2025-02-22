@@ -81,22 +81,36 @@ import "./App.css";
 
 // export default App;
 
-import Button from "./Components/Button/Button";
-import { useState } from "react";
+// import Button from "./Components/Button/Button";
+// import { useState } from "react";
+
+// function App() {
+//   const [isVisible, setVisibility] = useState(false);
+//   let count = 0;
+
+//   const handleClick = () => {
+//     setVisibility(true);
+//     count++;
+//     console.log(isVisible);
+//   };
+
+//   return (
+//     <div>
+//       <Button onClick={handleClick}>Show</Button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+import Message from "./Message";
 
 function App() {
-  const [isVisible, setVisibility] = useState(false);
-  let count = 0;
-
-  const handleClick = () => {
-    setVisibility(true);
-    count++;
-    console.log(isVisible);
-  };
-
   return (
     <div>
-      <Button onClick={handleClick}>Show</Button>
+      <Message />
+      <Message />
+      <Message />
     </div>
   );
 }
