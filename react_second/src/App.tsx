@@ -103,12 +103,34 @@ import "./App.css";
 
 // export default App;
 
-import Message from "./Message";
+// import Message from "./Message";
+
+// function App() {
+//   return (
+//     <div>
+//       <Message />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+import { useState } from "react";
 
 function App() {
+  const [drink, setDrink] = useState({
+    title: "americano",
+    price: 5,
+  });
+
+  const handleClick = () => {
+    setDrink({ ...drink, price: 6 });
+  };
+
   return (
     <div>
-      <Message />
+      {drink.price}
+      <button onClick={handleClick}>Count</button>
     </div>
   );
 }
