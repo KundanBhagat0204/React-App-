@@ -130,7 +130,12 @@ function App() {
   //   },
   // });
 
-  const [tags, setTags] = useState(["happy", "cheerful"]);
+  // const [tags, setTags] = useState(["happy", "cheerful"]);
+
+  const [bugs, setBugs] = useState([
+    { id: 1, title: "Bug 1", fixed: false },
+    { id: 2, title: "Bug 2", fixed: false },
+  ]);
   const handleClick = () => {
     // setDrink({ ...drink, price: 6 });
     // setCustomer({
@@ -141,18 +146,26 @@ function App() {
     //   },
     // });
     //add
-    setTags([...tags, "exciting"]);
+    // setTags([...tags, "exciting"]);
 
-    //remove
-    setTags(tags.filter((tag) => tag !== "happy"));
+    // //remove
+    // setTags(tags.filter((tag) => tag !== "happy"));
 
-    //update
-    setTags(tags.map((tag) => (tag === "happy" ? "happiens" : tag)));
+    // //update
+    // setTags(tags.map((tag) => (tag === "happy" ? "happiens" : tag)));
+
+    setBugs(bugs.map((bug) => (bug.id === 1 ? { ...bug, fixed: true } : bug)));
   };
 
   return (
     <div>
-      {tags}
+      {bugs.map((bug) => (
+        <div key={bug.id}>
+          <p>
+            {bug.title} - {bug.fixed ? "Fixed ✅" : "Not Fixed ❌"}
+          </p>
+        </div>
+      ))}
       <button onClick={handleClick}>Count</button>
     </div>
   );
