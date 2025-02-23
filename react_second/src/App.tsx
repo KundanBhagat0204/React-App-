@@ -266,12 +266,24 @@ import "./App.css";
 
 // export default App;
 
-import Form from "./Components/Form";
+// import Form from "./Components/Form";
+
+// function App() {
+//   return (
+//     <div>
+//       <Form />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+import ExpenseList from "./Expense-Trackere/ExpenseList.tsx";
 
 function App() {
   return (
     <div>
-      <Form />
+      <ExpenseList />
     </div>
   );
 }
