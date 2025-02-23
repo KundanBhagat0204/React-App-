@@ -245,7 +245,7 @@ function App() {
   return (
     <>
       <div>
-        <ExpandableText maxChars={10}>
+        <ExpandableText maxChars={20}>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro modi
           excepturi officia quo harum, molestias tempore corporis eos
           consequatur iste quidem expedita minus cum veniam, ab aliquam iure
