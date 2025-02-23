@@ -278,7 +278,7 @@ import "./App.css";
 
 // export default App;
 
-import ExpenseList from "./Expense-Trackere/ExpenseList.tsx";
+import ExpenseList from "./ExpanseList";
 
 function App() {
   return (
