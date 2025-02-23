@@ -1,5 +1,5 @@
 // import ListGroup from "./Components/ListGroup";
-import { useState } from "react";
+// import { useState } from "react";
 import "./App.css";
 
 // function App() {
@@ -278,14 +278,13 @@ import "./App.css";
 // }
 
 // export default App;
+import { useState } from "react";
 import ExpenseList from "./Expense-Tracker/Component/ExpenseList";
 import ExpenseFilter from "./Expense-Tracker/Component/ExpenseFilter";
 import ExpenseForm from "./Expense-Tracker/Component/ExpenseForm";
 
-export const categories = ["Groceries", "Utilities", "Entertainment"];
-
 function App() {
-  const [selectCategory, setSelectedCategory] = useState(" ");
+  const [selectCategory, setSelectedCategory] = useState("");
   const [expenses, setExpenses] = useState([
     { id: 1, description: "aaa", amount: 10, category: "Utilities" },
     { id: 2, description: "bbb", amount: 11, category: "Utilities" },
