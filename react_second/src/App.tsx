@@ -240,27 +240,39 @@ import "./App.css";
 // }
 
 // export default App;
-import ExpandableText from "./Components/ExpandableText";
+// import ExpandableText from "./Components/ExpandableText";
+// function App() {
+//   return (
+//     <>
+//       <div>
+//         <ExpandableText maxChars={20}>
+//           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro modi
+//           excepturi officia quo harum, molestias tempore corporis eos
+//           consequatur iste quidem expedita minus cum veniam, ab aliquam iure
+//           quam exercitationem aliquid ad provident voluptates error perspiciatis
+//           neque. Aliquam illum eaque harum exercitationem? Beatae quo
+//           cupiditate, provident illum ducimus consequuntur, itaque nihil,
+//           ratione nesciunt repudiandae obcaecati! Lorem ipsum dolor sit amet
+//           consectetur adipisicing elit. Non aspernatur aliquam necessitatibus
+//           quasi deserunt eius esse officiis voluptatibus adipisci ratione
+//           cupiditate reiciendis minus magni quae, atque hic, in rem iure nemo
+//           quibusdam? Odio quidem rerum voluptates saepe repellat similique
+//           molestiae, dignissimos, quibusdam ad, repudiandae laboriosam.
+//         </ExpandableText>
+//       </div>
+//     </>
+//   );
+// }
+
+// export default App;
+
+import Form from "./Components/Form";
+
 function App() {
   return (
-    <>
-      <div>
-        <ExpandableText maxChars={20}>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro modi
-          excepturi officia quo harum, molestias tempore corporis eos
-          consequatur iste quidem expedita minus cum veniam, ab aliquam iure
-          quam exercitationem aliquid ad provident voluptates error perspiciatis
-          neque. Aliquam illum eaque harum exercitationem? Beatae quo
-          cupiditate, provident illum ducimus consequuntur, itaque nihil,
-          ratione nesciunt repudiandae obcaecati! Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Non aspernatur aliquam necessitatibus
-          quasi deserunt eius esse officiis voluptatibus adipisci ratione
-          cupiditate reiciendis minus magni quae, atque hic, in rem iure nemo
-          quibusdam? Odio quidem rerum voluptates saepe repellat similique
-          molestiae, dignissimos, quibusdam ad, repudiandae laboriosam.
-        </ExpandableText>
-      </div>
-    </>
+    <div>
+      <Form />
+    </div>
   );
 }
 
