@@ -1,5 +1,3 @@
-import React from "react";
-
 interface Expense {
   id: number;
   description: string;
@@ -13,8 +11,9 @@ interface Props {
 }
 
 const ExpenseList = ({ expenses, onDelete }: Props) => {
+  if (expenses.length === 0) return null;
   return (
-    <table className="table table-border">
+    <table className="table table-bordered ">
       <thead>
         <tr>
           <th>Description</th>

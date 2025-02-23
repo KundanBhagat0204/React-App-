@@ -1,4 +1,5 @@
 // import ListGroup from "./Components/ListGroup";
+import { useState } from "react";
 import "./App.css";
 
 // function App() {
@@ -277,13 +278,22 @@ import "./App.css";
 // }
 
 // export default App;
-
-import ExpenseList from "./ExpanseList";
+import ExpenseList from "./Expense-Tracker/Component/ExpenseList";
 
 function App() {
+  const [expenses, setExpenses] = useState([
+    { id: 1, description: "aaa", amount: 10, category: "utilities" },
+    { id: 2, description: "bbb", amount: 11, category: "utilities" },
+    { id: 3, description: "ccc", amount: 12, category: "utilities" },
+    { id: 4, description: "dd", amount: 13, category: "utilities" },
+  ]);
+
   return (
     <div>
-      <ExpenseList />
+      <ExpenseList
+        expenses={expenses}
+        onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))}
+      />
     </div>
   );
 }
