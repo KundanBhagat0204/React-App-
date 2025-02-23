@@ -289,7 +289,7 @@ function App() {
     { id: 1, description: "aaa", amount: 10, category: "Utilities" },
     { id: 2, description: "bbb", amount: 11, category: "Utilities" },
     { id: 3, description: "ccc", amount: 12, category: "Utilities" },
-    { id: 4, description: "dd", amount: 13, category: "Utilities" },
+    { id: 4, description: "dd", amount: 13, category: "Entertainment" },
   ]);
 
   const visibleExpenses = selectCategory
@@ -299,7 +299,14 @@ function App() {
   return (
     <div>
       <div className="mb-5">
-        <ExpenseForm />
+        <ExpenseForm
+          onSubmit={(newExpense) =>
+            setExpenses((prevExpenses) => [
+              ...prevExpenses,
+              { ...newExpense, id: prevExpenses.length + 1 },
+            ])
+          }
+        />
       </div>
       <div className="mb-3">
         <ExpenseFilter
