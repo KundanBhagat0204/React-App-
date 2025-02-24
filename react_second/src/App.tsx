@@ -368,6 +368,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import { CanceledError } from "./services/api-client";
 import UserService from "./services/userService";
+import useUsers from "./hooks/userUsers";
 
 interface User {
   id: number;
@@ -375,27 +376,7 @@ interface User {
 }
 
 function App() {
-  const [users, setUsers] = useState<User[]>([]);
-  const [error, setError] = useState("");
-  const [isLoading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    const { request, cancel } = UserService.getAll<User>();
-    request
-      .then((res) => {
-        setUsers(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        if (err instanceof CanceledError) return;
-        setError(err.message);
-        setLoading(false);
-      });
-
-    return () => cancel();
-  }, []);
-
+  const { users, error, isLoading, setUsers, setError } = useUsers();
   const deleteUser = (user: User) => {
     const originalUsers = [...users];
     setUsers(users.filter((u) => u.id !== user.id));
