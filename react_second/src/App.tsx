@@ -1,5 +1,6 @@
 // import ListGroup from "./Components/ListGroup";
 // import { useState } from "react";
+// import { useEffect, useState } from "react";
 import "./App.css";
 
 // function App() {
@@ -323,42 +324,69 @@ import "./App.css";
 
 // export default App;
 
-import { useEffect } from "react";
-import ProductList from "./Expense-Tracker/Component/ProductList";
+// import { useEffect } from "react";
+// import ProductList from "./Expense-Tracker/Component/ProductList";
+
+// function App() {
+//   // const ref = useRef<HTMLInputElement>(null);
+
+//   // useEffect(() => {
+//   //   if (ref.current) ref.current.focus();
+//   // });
+
+//   // useEffect(() => {
+//   //   document.title = "My App";
+//   // });
+
+//   const connect = () => console.log("Connecting");
+//   const disconnect = () => console.log("DisConnecting");
+
+//   useEffect(() => {
+//     connect();
+
+//     return () => disconnect();
+//   });
+
+//   return (
+//     <div>
+//       {/* <input ref={ref} type="text" className="form-control" />
+//       <select
+//         className="form-select"
+//         onChange={(event) => setCategory(event.target.value)}
+//       >
+//         <option value=""></option>
+//         <option value="Clothing">Clothing</option>
+//         <option value="HouseHold">HouseHold</option>
+//       </select>
+//       <ProductList category={category} /> */}
+//     </div>
+//   );
+// }
+
+// export default App;
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+interface User {
+  id: number;
+  name: string;
+}
 
 function App() {
-  // const ref = useRef<HTMLInputElement>(null);
-
-  // useEffect(() => {
-  //   if (ref.current) ref.current.focus();
-  // });
-
-  // useEffect(() => {
-  //   document.title = "My App";
-  // });
-
-  const connect = () => console.log("Connecting");
-  const disconnect = () => console.log("DisConnecting");
+  const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    connect();
-
-    return () => disconnect();
-  });
-
+    axios
+      .get<User[]>("https://jsonplaceholder.typicode.com/users")
+      .then((res) => setUsers(res.data));
+  }, []);
   return (
-    <div>
-      {/* <input ref={ref} type="text" className="form-control" />
-      <select
-        className="form-select"
-        onChange={(event) => setCategory(event.target.value)}
-      >
-        <option value=""></option>
-        <option value="Clothing">Clothing</option>
-        <option value="HouseHold">HouseHold</option>
-      </select>
-      <ProductList category={category} /> */}
-    </div>
+    <ul>
+      {users.map((user) => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </ul>
   );
 }
 
