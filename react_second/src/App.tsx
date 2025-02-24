@@ -323,7 +323,7 @@ import "./App.css";
 
 // export default App;
 
-import { useState } from "react";
+import { useEffect } from "react";
 import ProductList from "./Expense-Tracker/Component/ProductList";
 
 function App() {
@@ -337,11 +337,18 @@ function App() {
   //   document.title = "My App";
   // });
 
-  const [category, setCategory] = useState(" ");
+  const connect = () => console.log("Connecting");
+  const disconnect = () => console.log("DisConnecting");
+
+  useEffect(() => {
+    connect();
+
+    return () => disconnect();
+  });
 
   return (
     <div>
-      {/* <input ref={ref} type="text" className="form-control" /> */}
+      {/* <input ref={ref} type="text" className="form-control" />
       <select
         className="form-select"
         onChange={(event) => setCategory(event.target.value)}
@@ -350,7 +357,7 @@ function App() {
         <option value="Clothing">Clothing</option>
         <option value="HouseHold">HouseHold</option>
       </select>
-      <ProductList category={category} />
+      <ProductList category={category} /> */}
     </div>
   );
 }
