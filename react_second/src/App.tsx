@@ -278,45 +278,67 @@ import "./App.css";
 // }
 
 // export default App;
-import { useState } from "react";
-import ExpenseList from "./Expense-Tracker/Component/ExpenseList";
-import ExpenseFilter from "./Expense-Tracker/Component/ExpenseFilter";
-import ExpenseForm from "./Expense-Tracker/Component/ExpenseForm";
+// import { useState } from "react";
+// import ExpenseList from "./Expense-Tracker/Component/ExpenseList";
+// import ExpenseFilter from "./Expense-Tracker/Component/ExpenseFilter";
+// import ExpenseForm from "./Expense-Tracker/Component/ExpenseForm";
+
+// function App() {
+//   const [selectCategory, setSelectedCategory] = useState("");
+//   const [expenses, setExpenses] = useState([
+//     { id: 1, description: "aaa", amount: 10, category: "Utilities" },
+//     { id: 2, description: "bbb", amount: 11, category: "Utilities" },
+//     { id: 3, description: "ccc", amount: 12, category: "Utilities" },
+//     { id: 4, description: "dd", amount: 13, category: "Entertainment" },
+//   ]);
+
+//   const visibleExpenses = selectCategory
+//     ? expenses.filter((e) => e.category === selectCategory)
+//     : expenses;
+
+//   return (
+//     <div>
+//       <div className="mb-5">
+//         <ExpenseForm
+//           onSubmit={(newExpense) =>
+//             setExpenses((prevExpenses) => [
+//               ...prevExpenses,
+//               { ...newExpense, id: prevExpenses.length + 1 },
+//             ])
+//           }
+//         />
+//       </div>
+//       <div className="mb-3">
+//         <ExpenseFilter
+//           onSelectCategory={(category) => setSelectedCategory(category)}
+//         />
+//       </div>
+//       <ExpenseList
+//         expenses={visibleExpenses}
+//         onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))}
+//       />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+import { useEffect, useRef } from "react";
 
 function App() {
-  const [selectCategory, setSelectedCategory] = useState("");
-  const [expenses, setExpenses] = useState([
-    { id: 1, description: "aaa", amount: 10, category: "Utilities" },
-    { id: 2, description: "bbb", amount: 11, category: "Utilities" },
-    { id: 3, description: "ccc", amount: 12, category: "Utilities" },
-    { id: 4, description: "dd", amount: 13, category: "Entertainment" },
-  ]);
+  const ref = useRef<HTMLInputElement>(null);
 
-  const visibleExpenses = selectCategory
-    ? expenses.filter((e) => e.category === selectCategory)
-    : expenses;
+  useEffect(() => {
+    if (ref.current) ref.current.focus();
+  });
+
+  useEffect(() => {
+    document.title = "My App";
+  });
 
   return (
     <div>
-      <div className="mb-5">
-        <ExpenseForm
-          onSubmit={(newExpense) =>
-            setExpenses((prevExpenses) => [
-              ...prevExpenses,
-              { ...newExpense, id: prevExpenses.length + 1 },
-            ])
-          }
-        />
-      </div>
-      <div className="mb-3">
-        <ExpenseFilter
-          onSelectCategory={(category) => setSelectedCategory(category)}
-        />
-      </div>
-      <ExpenseList
-        expenses={visibleExpenses}
-        onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))}
-      />
+      <input ref={ref} type="text" className="form-control" />
     </div>
   );
 }
